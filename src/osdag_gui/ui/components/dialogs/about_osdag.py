@@ -7,8 +7,8 @@ from PySide6.QtGui import QIcon
 from PySide6.QtSvgWidgets import QSvgWidget
 from osdag_gui.ui.components.dialogs.custom_titlebar import CustomTitleBar
 import osdag_gui.resources.resources_rc
-import platform
-import sys
+import markdown, os
+from importlib import resources
 
 class AboutOsdagDialog(QDialog):
     """Modern About dialog for Osdag with tabbed interface."""
@@ -44,7 +44,7 @@ class AboutOsdagDialog(QDialog):
 
         # Add tabs
         self.tabs.addTab(self._create_about_tab(), "About")
-        self.tabs.addTab(self._create_credits_tab(), "Credits")
+        self.tabs.addTab(self._create_contributors_tab(), "Contributors")
         self.tabs.addTab(self._create_acknowledgements_tab(), "Acknowledgements")
         self.tabs.addTab(self._create_license_tab(), "License")
         self.tabs.addTab(self._create_privacy_tab(), "Privacy Policy and Caveats")
@@ -93,8 +93,8 @@ class AboutOsdagDialog(QDialog):
         
         layout.addWidget(browser)
         return widget
-
-    def _create_credits_tab(self):
+    
+    def _create_contributors_tab(self):
         """Create the Credits tab."""
         widget = QWidget()
         layout = QVBoxLayout(widget)
@@ -102,204 +102,15 @@ class AboutOsdagDialog(QDialog):
 
         browser = QTextBrowser()
         browser.setOpenExternalLinks(True)
-        browser.setHtml("""
-        <h2 style="color: #91b014;">Credits</h2>
 
-        <h3>Project Investigator</h3>
-        <p>Prof. Siddhartha Ghosh, Dept. of Civil Engineering, IIT Bombay, Mumbai, India</p>
-        </br>
+        md_text = resources.files("osdag_core.data.doc").joinpath("CONTRIBUTORS.MD").read_text(encoding="utf-8")
+        html = markdown.markdown(md_text)
 
-        <h3>Project Research Staff</h3>     
-        <ul style="line-height: 1.6;">
-            <li>Aditya Donde</li>
-            <li>Ajinkya Dahale</li>
-            <li>Ajmal Babu MS</li>
-            <li>Allan L Marbaniang</li>
-            <li>Anand Swaroop</li>
-            <li>Bhumik Halani</li>
-            <li>Christo George</li>
-            <li>Darshan Vishwakarma</li>
-            <li>Deepa Chaudhari</li>
-            <li>Deepthi Reddy</li>
-            <li>Jayant Patil</li>
-            <li>Kumari Anjali Jatav</li>
-            <li>N Dharma Teja</li>
-            <li>Nidhi Khare</li>
-            <li>Parth Karia</li>
-            <li>Radhika Pajgade</li>
-            <li>Rahul Benal</li>
-            <li>Reshma Konjari</li>
-            <li>Rutvik Joshi</li>
-            <li>Shihabuddin Khan</li>
-            <li>Siddesh Chavan</li>
-            <li>Sourabh Das</li>
-            <li>Subhrajit Dutta</li>
-            <li>Suhel Hashmi</li>
-            <li>Swastik Gupta</li>
-            <li>Swathi M</li>
-            <li>Suchita Lad</li>
-            <li>Thushara Pushkaran</li>
-            <li>Yash Lokhande</li>
-        </ul>
-        </br>
-                        
-        <h3>IITB Students</h3>
-        <ul style="line-height: 1.6;">
-            <li>Annu Kumari</li>
-            <li>Devesh Kumar</li>
-            <li>Mayur Mistry</li>
-            <li>Neela Lakshmi</li>
-            <li>Sharayu Korade</li>
-        </ul> 
-        </br>
-        <h3>Advisors</h3>
-        <ul style="line-height: 1.6;">
-            <li>Arul Jayachandran S (IIT Madras, Chennai)</li>
-            <li>Harshvardhan Subbarao (Construma Consultancy Pvt Ltd, Mumbai)</li>
-            <li>Kannan Moudgalya (IIT Bombay, Mumbai)</li>
-            <li>Manas M Ghosh (INSDAG, Kolkata)</li>
-            <li>Meera Raghunandan (IIT Bombay, Mumbai)</li>
-            <li>PC Ashwin Kumar (IIT Roorkee, Roorkee)</li>
-            <li>Prabhu Ramachandran (IIT Bombay, Mumbai)</li>
-            <li>Pradyumna M (Independent Consultant, Bengaluru)</li>
-            <li>Pratip Bhattacharya (Tata Consulting Engineers Ltd, Kolkata)</li>
-            <li>Rupen Goswami (IIT Madras, Chennai)</li>
-            <li>SR Satish Kumar (IIT Madras, Chennai)</li>
-            <li>Somnath Mukherjee (MN Dastur & Co (P) Ltd, Kolkata)</li>
-            <li>V Kalyanaraman (IIT Madras, Chennai)</li>
-            <li>Yogesh D Pisal (Aker Powergas Pvt Ltd, Mumbai)</li>
-        </ul>             
-        </br>
-        <h3>Project Interns</h3>
-        <ul style="line-height: 1.6;text-decoration:none;">
-            <li style="margin-top: 1em;">
-                <b>Contributors</b>
-                <ul style="line-height: 1.6;">
-                    <li>Aamir Durrany</li>
-                    <li>Aaranyak Ghosh</li>
-                    <li>Aathithya Sharan</li>
-                    <li>Abhijith Sogal</li>
-                    <li>Aditya Mavle</li>
-                    <li>Aditya Pawar</li>
-                    <li>Aditya Wagh</li>
-                    <li>Adnan Abdullah</li>
-                    <li>Agam Arora</li>
-                    <li>Aman Agarwal</li>
-                    <li>Amay Dixit</li>
-                    <li>Amir Chappalwala</li>
-                    <li>Amrutha J</li>
-                    <li>Ansari Mohammad Umair</li>
-                    <li>Anshul Kumar Singh</li>
-                    <li>Anuranjani</li>
-                    <li>Anushka Bajpai</li>
-                    <li>Aravind P</li>
-                    <li>Arbaz khan</li>
-                    <li>Arushi</li>
-                    <li>Aryamaan Pandey</li>
-                    <li>Aryan Gupta</li>
-                    <li>Atharva Dhavale</li>
-                    <li>Atharva Pingale</li>
-                    <li>Aum Ghelani</li>
-                    <li>Azhar Khan</li>
-                    <li>Chaman Lal Yadav</li>
-                    <li>Debayan Ghosh</li>
-                    <li>Deepthi Reddy</li>
-                    <li>Dhimanth Kumar Singh</li>
-                    <li>Dodda Chandu</li>
-                    <li>Eeshu</li>
-                    <li>Faizan Khan</li>
-                    <li>Faran Imam</li>
-                    <li>Garvit Singh Rathore</li>
-                    <li>Gourav Najwani</li>
-                    <li>Harshan S</li>
-                    <li>Harsh Chelani</li>
-                    <li>Harsh Gondal</li>
-                    <li>Harshit Mahour</li>
-                    <li>Himanshu Singh</li>
-                    <li>Ishan Rai</li>
-                    <li>Jawwad Ahmad</li>
-                    <li>Jerin Jiss George</li>
-                    <li>Koustav Bhattacharjee</li>
-                    <li>Lakshana Shree S</li>
-                    <li>Manas Budhiraja</li>
-                    <li>Manav Sharma</li>
-                    <li>Mayank Agarwal</li>
-                    <li>Mehendi Hasan</li>
-                    <li>Mohammad Azhar U Din Mir</li>
-                    <li>Mohammad Suhail</li>
-                    <li>Mohammad Taha</li>
-                    <li>Mohd Faraz Khan</li>
-                    <li>Mohit Rana</li>
-                    <li>Mosam Patel</li>
-                    <li>Mukunth AG</li>
-                    <li>Nandagopal VS</li>
-                    <li>Navnit Kumar</li>
-                    <li>Navtej</li>
-                    <li>Nikhil Kapoor</li>
-                    <li>Nishi Kant Mandal</li>
-                    <li>Nitin Singh</li>
-                    <li>Om Lakshkar</li>
-                    <li>Pragya Thakur</li>
-                    <li>Pramila Kumari</li>
-                    <li>Prerna Praveen Vidyarthi</li>
-                    <li>Prince Sahu</li>
-                    <li>Priti Kumari</li>
-                    <li>Prathamesh Varma</li>
-                    <li>Rachna Gupta</li>
-                    <li>Raghav Sharma</li>
-                    <li>Rajesh Dalai</li>
-                    <li>Ranvir Singh</li>
-                    <li>Renu</li>
-                    <li>Ritik Kumar</li>
-                    <li>Riyaz Khan</li>
-                    <li>Roushan Raj</li>
-                    <li>Rupali Agarwal</li>
-                    <li>Sachin Saud</li>
-                    <li>Sagar Rathore</li>
-                    <li>Sai Charan</li>
-                    <li>Sakshi Shamrao Jadhav</li>
-                    <li>Samarpita Das</li>
-                    <li>Sandipan Bhattacherjee</li>
-                    <li>Sanket Gaikwad</li>
-                    <li>Sasir Pentyala</li>
-                    <li>Sasank Navuri</li>
-                    <li>Satyam Singh Niranjan</li>
-                    <li>Saumya Mishra</li>
-                    <li>Shahadad PP</li>
-                    <li>Shreya Bhende</li>
-                    <li>Shubham Kumar</li>
-                    <li>Souraj Bhosale</li>
-                    <li>Sreejesh S</li>
-                    <li>Srinivas Raghav</li>
-                    <li>Steve Sojan</li>
-                    <li>Sumagna Das</li>
-                    <li>Suraj Bhosale</li>
-                    <li>Sushree Sangita</li>
-                    <li>Swaroop N</li>
-                    <li>Sweta Pal</li>
-                    <li>Tanmay Kalla</li>
-                    <li>Tanu Singh</li>
-                    <li>Tarandeep Singh Juneja</li>
-                    <li>Yash Lokhande</li>
-                    <li>Yugh Juneja</li>
-                    <li>Zunzunia Arsil</li>
-                </ul>
-            </li>
-        </ul>
-        </br>
-        <h3>Project Management Staff</h3>
-        <ul style="line-height: 1.6;">
-            <li>Kiran Kishore</li>
-            <li>Lee Thomas Stephen</li>
-            <li>Nagesh Karmali</li>
-            <li>Sunil Shetye</li>
-            <li>Usha Viswanathan</li>
-            <li>Vineeta Parmar</li>
-        </ul>
-        """)
+        browser.setHtml(html)
         
         layout.addWidget(browser)
         return widget
+
 
     def _create_license_tab(self):
         """Create the License tab."""

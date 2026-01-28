@@ -1,0 +1,178 @@
+# Credits
+
+## Project Investigator
+Prof. Siddhartha Ghosh, Dept. of Civil Engineering, IIT Bombay, Mumbai, India
+
+## Project Research Staff
+- Aditya Donde  
+- Ajinkya Dahale  
+- Ajmal Babu MS  
+- Allan L Marbaniang  
+- Anand Swaroop  
+- Bhumik Halani  
+- Christo George  
+- Darshan Vishwakarma  
+- Deepa Chaudhari  
+- Deepthi Reddy  
+- Jayant Patil  
+- Kumari Anjali Jatav  
+- N Dharma Teja  
+- Nidhi Khare  
+- Parth Karia  
+- Radhika Pajgade  
+- Rahul Benal  
+- Reshma Konjari  
+- Rutvik Joshi  
+- Shihabuddin Khan  
+- Siddesh Chavan  
+- Sourabh Das  
+- Subhrajit Dutta  
+- Suhel Hashmi  
+- Swastik Gupta  
+- Swathi M  
+- Suchita Lad  
+- Thushara Pushkaran  
+- Yash Lokhande  
+
+## IITB Students
+- Annu Kumari  
+- Devesh Kumar  
+- Mayur Mistry  
+- Neela Lakshmi  
+- Sharayu Korade  
+
+## Advisors
+- Arul Jayachandran S (IIT Madras, Chennai)  
+- Harshvardhan Subbarao (Construma Consultancy Pvt Ltd, Mumbai)  
+- Kannan Moudgalya (IIT Bombay, Mumbai)  
+- Manas M Ghosh (INSDAG, Kolkata)  
+- Meera Raghunandan (IIT Bombay, Mumbai)  
+- PC Ashwin Kumar (IIT Roorkee, Roorkee)  
+- Prabhu Ramachandran (IIT Bombay, Mumbai)  
+- Pradyumna M (Independent Consultant, Bengaluru)  
+- Pratip Bhattacharya (Tata Consulting Engineers Ltd, Kolkata)  
+- Rupen Goswami (IIT Madras, Chennai)  
+- SR Satish Kumar (IIT Madras, Chennai)  
+- Somnath Mukherjee (MN Dastur & Co (P) Ltd, Kolkata)  
+- V Kalyanaraman (IIT Madras, Chennai)  
+- Yogesh D Pisal (Aker Powergas Pvt Ltd, Mumbai)  
+
+## Project Interns
+
+### Contributors
+- Aamir Durrany  
+- Aaranyak Ghosh  
+- Aathithya Sharan  
+- Abhijith Sogal  
+- Aditya Mavle  
+- Aditya Pawar  
+- Aditya Wagh  
+- Adnan Abdullah  
+- Agam Arora  
+- Aman Agarwal  
+- Amay Dixit  
+- Amir Chappalwala  
+- Amrutha J  
+- Ansari Mohammad Umair  
+- Anshul Kumar Singh  
+- Anuranjani  
+- Anushka Bajpai  
+- Aravind P  
+- Arbaz khan  
+- Arushi  
+- Aryamaan Pandey  
+- Aryan Gupta  
+- Atharva Dhavale  
+- Atharva Pingale  
+- Aum Ghelani  
+- Azhar Khan  
+- Chaman Lal Yadav  
+- Debayan Ghosh  
+- Deepthi Reddy  
+- Dhimanth Kumar Singh  
+- Dodda Chandu  
+- Eeshu  
+- Faizan Khan  
+- Faran Imam  
+- Garvit Singh Rathore  
+- Gourav Najwani  
+- Harshan S  
+- Harsh Chelani  
+- Harsh Gondal  
+- Harshit Mahour  
+- Himanshu Singh  
+- Ishan Rai  
+- Jawwad Ahmad  
+- Jerin Jiss George  
+- Koustav Bhattacharjee  
+- Lakshana Shree S  
+- Manas Budhiraja  
+- Manav Sharma  
+- Mayank Agarwal  
+- Mehendi Hasan  
+- Mohammad Azhar U Din Mir  
+- Mohammad Suhail  
+- Mohammad Taha  
+- Mohd Faraz Khan  
+- Mohit Rana  
+- Mosam Patel  
+- Mukunth AG  
+- Nandagopal VS  
+- Navnit Kumar  
+- Navtej  
+- Nikhil Kapoor  
+- Nishi Kant Mandal  
+- Nitin Singh  
+- Om Lakshkar  
+- Pragya Thakur  
+- Pramila Kumari  
+- Prerna Praveen Vidyarthi  
+- Prince Sahu  
+- Priti Kumari  
+- Prathamesh Varma  
+- Rachna Gupta  
+- Raghav Sharma  
+- Rajesh Dalai  
+- Ranvir Singh  
+- Renu  
+- Ritik Kumar  
+- Riyaz Khan  
+- Roushan Raj  
+- Rupali Agarwal  
+- Sachin Saud  
+- Sagar Rathore  
+- Sai Charan  
+- Sakshi Shamrao Jadhav  
+- Samarpita Das  
+- Sandipan Bhattacherjee  
+- Sanket Gaikwad  
+- Sasir Pentyala  
+- Sasank Navuri  
+- Satyam Singh Niranjan  
+- Saumya Mishra  
+- Shahadad PP  
+- Shreya Bhende  
+- Shubham Kumar  
+- Souraj Bhosale  
+- Sreejesh S  
+- Srinivas Raghav  
+- Steve Sojan  
+- Sumagna Das  
+- Suraj Bhosale  
+- Sushree Sangita  
+- Swaroop N  
+- Sweta Pal  
+- Tanmay Kalla  
+- Tanu Singh  
+- Tarandeep Singh Juneja  
+- Yash Lokhande  
+- Yugh Juneja  
+- Zunzunia Arsil  
+
+## Project Management Staff
+- Kiran Kishore  
+- Lee Thomas Stephen  
+- Nagesh Karmali  
+- Sunil Shetye  
+- Usha Viswanathan  
+- Vineeta Parmar  
