@@ -18,79 +18,79 @@ from osdag_core.Common import *
 try:
     pen_style_dash = Qt.PenStyle.DashLine
 except AttributeError:
-    raise RuntimeError("Your PyQt5 version does not support dashed lines via Qt.PenStyle.DashLine. Please update PyQt5.")
+    raise RuntimeError(
+        "Your PySide6 version does not support dashed lines via Qt.PenStyle.DashLine. Please update PySide6.")
+
 
 class B2BCoverPlateCapacityDetails(QMainWindow):
-    def __init__(self, connection_obj, rows=3, cols=2 , main = None):
+    def __init__(self, connection_obj, rows=3, cols=2, main=None):
         print(main)
-        
+
         if main:
-            self.drawing_type=main[2]
-            self.web=main[1]
-            web=main[1]
-            main=main[0]
+            self.drawing_type = main[2]
+            self.web = main[1]
+            web = main[1]
+            main = main[0]
         super().__init__()
         self.connection = connection_obj
         # return
-        data=main.output_values(True)
+        data = main.output_values(True)
         print(type(main))
-        dict1={i[0] : i[3] for i in data}
+        dict1 = {i[0]: i[3] for i in data}
 
-        
-        
         for i in dict1:
             print(f'{i} : {dict1[i]}')
 
-
-        if web==True:
-            self.plate_length=dict1['Web_Plate.Height (mm)']
-            self.plate_width=dict1['Web_Plate.Width']
-            self.bolt_diameter=dict1['Bolt.Diameter']
-            web_capcity=dict1['Web_plate.spacing'][1]
-            print(web_capcity(main,True))
-            data2=web_capcity(main,True)
+        if web == True:
+            self.plate_length = dict1['Web_Plate.Height (mm)']
+            self.plate_width = dict1['Web_Plate.Width']
+            self.bolt_diameter = dict1['Bolt.Diameter']
+            web_capcity = dict1['Web_plate.spacing'][1]
+            print(web_capcity(main, True))
+            data2 = web_capcity(main, True)
             for i in range(len(data2)):
                 print(f"{i} : {data2[i]}")
-            self.pitch=data2[2][3]
-            self.End=data2[3][3]
-            self.Gauge=data2[4][3]
-            self.Edge=data2[5][3]
-            bolt_cap=dict1['Web Bolt.Capacities'][1]
-            print(bolt_cap(main,True))
-            bolt_cap=bolt_cap(True)
-        elif web==False:
-            self.plate_length=dict1['Flange_Plate.Width (mm)']
-            self.plate_width=dict1['flange_plate.Length']
-            self.bolt_diameter=dict1['Bolt.Diameter']
-            flange_capcity=dict1['Flange_plate.spacing'][1]
-            data2=flange_capcity(main,True)
-            self.pitch=data2[2][3]
-            self.End=data2[3][3]
-            self.Gauge=data2[4][3]
-            self.Edge=data2[5][3]
-            bolt_cap=dict1['Bolt.Capacities'][1]
-            print(bolt_cap(main,True))
-            bolt_cap=bolt_cap(main,True)
+            self.pitch = data2[2][3]
+            self.End = data2[3][3]
+            self.Gauge = data2[4][3]
+            self.Edge = data2[5][3]
+            bolt_cap = dict1['Web Bolt.Capacities'][1]
+            print(bolt_cap(main, True))
+            bolt_cap = bolt_cap(True)
+        elif web == False:
+            self.plate_length = dict1['Flange_Plate.Width (mm)']
+            self.plate_width = dict1['flange_plate.Length']
+            self.bolt_diameter = dict1['Bolt.Diameter']
+            flange_capcity = dict1['Flange_plate.spacing'][1]
+            data2 = flange_capcity(main, True)
+            self.pitch = data2[2][3]
+            self.End = data2[3][3]
+            self.Gauge = data2[4][3]
+            self.Edge = data2[5][3]
+            bolt_cap = dict1['Bolt.Capacities'][1]
+            print(bolt_cap(main, True))
+            bolt_cap = bolt_cap(main, True)
 
-        #capacity
-        if web==True and self.drawing_type=="capacity":
-            #web capacity details
-            web_capacity_fnc=dict1['section.web_capacities'][1]
-            web_capacity_val=web_capacity_fnc(main,True)
-            self.web_capacity_details = {item[1]: float(item[3]) for item in web_capacity_val if item[2] == 'TextBox'}
-                
-        #capacity
-        elif web==False and self.drawing_type=="capacity":
-            #flange capacity details
-            flange_capacity_fnc=dict1['section.flange_capacity'][1]
-            flange_capacity_val=flange_capacity_fnc(main,True)
-            self.flange_capacity_details={item[1]: float(item[3]) for item in flange_capacity_val if item[2] == 'TextBox'}
+        # capacity
+        if web == True and self.drawing_type == "capacity":
+            # web capacity details
+            web_capacity_fnc = dict1['section.web_capacities'][1]
+            web_capacity_val = web_capacity_fnc(main, True)
+            self.web_capacity_details = {item[1]: float(
+                item[3]) for item in web_capacity_val if item[2] == 'TextBox'}
 
-        self.cols=bolt_cap[1][3]
-        self.rows=bolt_cap[2][3]/self.cols
+        # capacity
+        elif web == False and self.drawing_type == "capacity":
+            # flange capacity details
+            flange_capacity_fnc = dict1['section.flange_capacity'][1]
+            flange_capacity_val = flange_capacity_fnc(main, True)
+            self.flange_capacity_details = {item[1]: float(
+                item[3]) for item in flange_capacity_val if item[2] == 'TextBox'}
+
+        self.cols = bolt_cap[1][3]
+        self.rows = bolt_cap[2][3]/self.cols
         self.initUI()
 
-        
     def initUI(self):
         self.setWindowTitle('Bolt Pattern Generator')
         self.setGeometry(100, 100, 1050, 500)
@@ -125,10 +125,10 @@ class B2BCoverPlateCapacityDetails(QMainWindow):
         left_layout = QVBoxLayout()
 
         # Get parameter dictionary
-        params = self.get_parameters((self.web,self.drawing_type))
-        count=0
+        params = self.get_parameters((self.web, self.drawing_type))
+        count = 0
         for key, value in params.items():
-            if self.web==False and self.drawing_type=="capacity":
+            if self.web == False and self.drawing_type == "capacity":
                 param_layout = QHBoxLayout()
                 space_label = QLabel('  ')
                 param_label = QLabel(f'{key.title()} (mm):')
@@ -138,7 +138,7 @@ class B2BCoverPlateCapacityDetails(QMainWindow):
                 left_layout.addLayout(param_layout)
                 # Add a blank label for vertical spacing
                 left_layout.addWidget(QLabel(''))
-            elif self.web==True and self.drawing_type=="capacity":
+            elif self.web == True and self.drawing_type == "capacity":
                 param_layout = QHBoxLayout()
                 space_label = QLabel('  ')
                 param_label = QLabel(f'{key.title()} (mm):')
@@ -149,7 +149,7 @@ class B2BCoverPlateCapacityDetails(QMainWindow):
                 # Add a blank label for vertical spacing
                 left_layout.addWidget(QLabel(''))
 
-                count+=1
+                count += 1
             else:
                 param_layout = QHBoxLayout()
                 param_label = QLabel(f'{key.title()} (mm):')
@@ -196,7 +196,8 @@ class B2BCoverPlateCapacityDetails(QMainWindow):
                 self.view2.scale(0.5, 0.5)
 
             # Split parameters into two groups (first two, next two)
-            params = list(self.get_parameters((self.web, self.drawing_type)).items())
+            params = list(self.get_parameters(
+                (self.web, self.drawing_type)).items())
             params1 = params[:2]
             params2 = params[2:]
 
@@ -204,8 +205,9 @@ class B2BCoverPlateCapacityDetails(QMainWindow):
             section1_layout = QHBoxLayout()
             section1_text_widget = QWidget()
             section1_text_layout = QVBoxLayout(section1_text_widget)
-            param_label = QLabel('Failure Pattern due to tension in Member and Plate')
-            param_label.setFont(QFont('Arial',12,QFont.Bold))
+            param_label = QLabel(
+                'Failure Pattern due to tension in Member and Plate')
+            param_label.setFont(QFont('Arial', 12, QFont.Bold))
             section1_text_layout.addWidget(param_label)
             for key, value in params1:
                 param_label = QLabel(f'{key}: {value}')
@@ -219,8 +221,9 @@ class B2BCoverPlateCapacityDetails(QMainWindow):
             section2_layout = QHBoxLayout()
             section2_text_widget = QWidget()
             section2_text_layout = QVBoxLayout(section2_text_widget)
-            param_label = QLabel('Failure Pattern due to tension in Member and Plate')
-            param_label.setFont(QFont('Arial',12,QFont.Bold))
+            param_label = QLabel(
+                'Failure Pattern due to tension in Member and Plate')
+            param_label.setFont(QFont('Arial', 12, QFont.Bold))
             section2_text_layout.addWidget(param_label)
             for key, value in params2:
                 param_label = QLabel(f'{key}: {value}')
@@ -253,7 +256,7 @@ class B2BCoverPlateCapacityDetails(QMainWindow):
             left_layout = QVBoxLayout()
             params = self.get_parameters((self.web, self.drawing_type))
             for key, value in params.items():
-                if self.web==False and self.drawing_type=="capacity":
+                if self.web == False and self.drawing_type == "capacity":
                     param_layout = QHBoxLayout()
                     space_label = QLabel('  ')
                     param_label = QLabel(f'{key.title()} (mm):')
@@ -292,25 +295,25 @@ class B2BCoverPlateCapacityDetails(QMainWindow):
             self.setCentralWidget(main_widget)
 
         # Automatically adjust view to fit scene
-    def get_parameters(self,type_):
-        if (type_[0]==True and type_[1]=="spacing") or (type_[0]==False and type_[1]=="spacing") :
+    def get_parameters(self, type_):
+        if (type_[0] == True and type_[1] == "spacing") or (type_[0] == False and type_[1] == "spacing"):
             return {
-            'Plate Length': self.plate_length,
-            'Plate Width': self.plate_width,
-            'Bolt Diameter': self.bolt_diameter,
-            'Pitch Distance': self.pitch,
-            'End Distance': self.End,
-            'Gauge Distance': self.Gauge,
-            'Edge Distance': self.Edge,
-            'Number of Columns': self.cols,
-            'Number of Rows': self.rows
+                'Plate Length': self.plate_length,
+                'Plate Width': self.plate_width,
+                'Bolt Diameter': self.bolt_diameter,
+                'Pitch Distance': self.pitch,
+                'End Distance': self.End,
+                'Gauge Distance': self.Gauge,
+                'Edge Distance': self.Edge,
+                'Number of Columns': self.cols,
+                'Number of Rows': self.rows
             }
-        elif type_[0]==True and type_[1]=="capacity":
+        elif type_[0] == True and type_[1] == "capacity":
             return self.web_capacity_details
-        elif type_[0]==False and type_[1]=="capacity":
+        elif type_[0] == False and type_[1] == "capacity":
             return self.flange_capacity_details
-        
-    def createDrawing(self, type_, scene):    
+
+    def createDrawing(self, type_, scene):
         try:
             plate_length = float(self.plate_length)
             plate_width = float(self.plate_width)
@@ -320,7 +323,7 @@ class B2BCoverPlateCapacityDetails(QMainWindow):
         rect = QRectF(0, 0, plate_length, plate_width)
         # Create a rectangle item
         rect_item = QGraphicsRectItem(rect)
-        
+
         # Set pen and brush (black border, transparent fill)
         pen = QPen(QColor('black'))
         pen.setWidth(2)
@@ -329,11 +332,11 @@ class B2BCoverPlateCapacityDetails(QMainWindow):
 
         # Add rectangle to the scene
         scene.addItem(rect_item)
-        
+
         # Extract parameters
         outline_pen = QPen(QColor('black'))
         outline_pen.setWidth(1)
-        
+
         # === Draw Base Plate Rectangle ===
         rect_item = QGraphicsRectItem(QRectF(0, 0, plate_length, plate_width))
         rect_item.setPen(outline_pen)
@@ -342,33 +345,39 @@ class B2BCoverPlateCapacityDetails(QMainWindow):
         dashed_pen = QPen(QColor('black'))
         dashed_pen.setStyle(pen_style_dash)
         dashed_pen.setWidth(2)
-        if type_[0]==False and type_[1]=="capacity":
-            
-            #top drawing
+        if type_[0] == False and type_[1] == "capacity":
+
+            # top drawing
             scene.addLine(self.Edge, 0, self.Edge, self.End, dashed_pen)
 
-            scene.addLine(self.Edge, self.End, plate_length, self.End, dashed_pen)
+            scene.addLine(self.Edge, self.End, plate_length,
+                          self.End, dashed_pen)
 
-            #bottom drawing
-            scene.addLine(self.Edge, plate_width, self.Edge, plate_width-self.End, dashed_pen)
+            # bottom drawing
+            scene.addLine(self.Edge, plate_width, self.Edge,
+                          plate_width-self.End, dashed_pen)
 
-            scene.addLine(self.Edge, plate_width-self.End, plate_length, plate_width-self.End, dashed_pen)
-        
-        elif type_[0]==True and type_[1]=="capacity" and scene==self.scene1:
+            scene.addLine(self.Edge, plate_width-self.End,
+                          plate_length, plate_width-self.End, dashed_pen)
 
-            scene.addLine(self.End, self.Edge, self.End, plate_width-self.End, dashed_pen)
+        elif type_[0] == True and type_[1] == "capacity" and scene == self.scene1:
 
-            scene.addLine(self.End, self.Edge, plate_length, self.Edge, dashed_pen)
+            scene.addLine(self.End, self.Edge, self.End,
+                          plate_width-self.End, dashed_pen)
 
-            scene.addLine(self.End, plate_width-self.Edge, plate_length, plate_width-self.Edge, dashed_pen)
+            scene.addLine(self.End, self.Edge, plate_length,
+                          self.Edge, dashed_pen)
 
-            
-        elif type_[0]==True and type_[1]=="capacity" and scene==self.scene2:
-        
-            scene.addLine(0, self.Edge, plate_length-self.End, self.Edge, dashed_pen)
+            scene.addLine(self.End, plate_width-self.Edge,
+                          plate_length, plate_width-self.Edge, dashed_pen)
 
-            scene.addLine(plate_length-self.End, self.Edge, plate_length-self.End, plate_width, dashed_pen)
+        elif type_[0] == True and type_[1] == "capacity" and scene == self.scene2:
 
+            scene.addLine(0, self.Edge, plate_length -
+                          self.End, self.Edge, dashed_pen)
+
+            scene.addLine(plate_length-self.End, self.Edge,
+                          plate_length-self.End, plate_width, dashed_pen)
 
         # === Center of the base plate ===
         center_x = plate_length / 2
@@ -386,12 +395,12 @@ class B2BCoverPlateCapacityDetails(QMainWindow):
             f"{self.plate_width} mm", pen, scene
         )
 
-        rows=int(self.rows)
-        cols=int(self.cols)
-        pitch=self.pitch
-        gauge=self.Gauge
-        end=self.End
-        edge=self.Edge
+        rows = int(self.rows)
+        cols = int(self.cols)
+        pitch = self.pitch
+        gauge = self.Gauge
+        end = self.End
+        edge = self.Edge
         hole_dia = self.bolt_diameter
         radius = hole_dia / 2
         y_center = end  # Y position is fixed for top row
@@ -493,42 +502,47 @@ class B2BCoverPlateCapacityDetails(QMainWindow):
             f"{self.End} mm", pen, scene
         )
         # self.addHorizontalDimension(
-        #     self.Edge-hole_dia/2, 10,  
-        #     self.Edge+hole_dia/2,10, 
+        #     self.Edge-hole_dia/2, 10,
+        #     self.Edge+hole_dia/2,10,
         #     f"{hole_dia} mm", pen
         # )
+
     def addHorizontalDimension(self, x1, y1, x2, y2, text, pen, scene):
         scene.addLine(x1, y1, x2, y2, pen)
         arrow_size = int(self.arrowsize)
         ext_length = 10
         scene.addLine(x1, y1 - ext_length/2, x1, y1 + ext_length/2, pen)
         scene.addLine(x2, y2 - ext_length/2, x2, y2 + ext_length/2, pen)
-        
+
         points_left = [
             (x1, y1),
             (x1 + arrow_size, y1 - arrow_size/2),
             (x1 + arrow_size, y1 + arrow_size/2)
         ]
-        polygon_left = scene.addPolygon(QPolygonF([QPointF(x, y) for x, y in points_left]), pen)
+        polygon_left = scene.addPolygon(
+            QPolygonF([QPointF(x, y) for x, y in points_left]), pen)
         polygon_left.setBrush(QBrush(QColor('black')))
-        
+
         points_right = [
             (x2, y2),
             (x2 - arrow_size, y2 - arrow_size/2),
             (x2 - arrow_size, y2 + arrow_size/2)
         ]
-        polygon_right = scene.addPolygon(QPolygonF([QPointF(x, y) for x, y in points_right]), pen)
+        polygon_right = scene.addPolygon(
+            QPolygonF([QPointF(x, y) for x, y in points_right]), pen)
         polygon_right.setBrush(QBrush(QColor('black')))
-        
+
         text_item = scene.addText(text)
         font = QFont()
         font.setPointSize(int(self.fontsize))
         text_item.setFont(font)
-        
+
         if y1 < 0:
-            text_item.setPos((x1 + x2) / 2 - text_item.boundingRect().width() / 2, y1 - 25)
+            text_item.setPos(
+                (x1 + x2) / 2 - text_item.boundingRect().width() / 2, y1 - 25)
         else:
-            text_item.setPos((x1 + x2) / 2 - text_item.boundingRect().width() / 2, y1 + 5)
+            text_item.setPos(
+                (x1 + x2) / 2 - text_item.boundingRect().width() / 2, y1 + 5)
 
     def addVerticalDimension(self, x1, y1, x2, y2, text, pen, scene):
         scene.addLine(x1, y1, x2, y2, pen)
@@ -536,22 +550,24 @@ class B2BCoverPlateCapacityDetails(QMainWindow):
         ext_length = 10
         scene.addLine(x1 - ext_length/2, y1, x1 + ext_length/2, y1, pen)
         scene.addLine(x2 - ext_length/2, y2, x2 + ext_length/2, y2, pen)
-        
+
         if y2 > y1:
             points_top = [
                 (x1, y1),
                 (x1 - arrow_size/2, y1 + arrow_size),
                 (x1 + arrow_size/2, y1 + arrow_size)
             ]
-            polygon_top = scene.addPolygon(QPolygonF([QPointF(x, y) for x, y in points_top]), pen)
+            polygon_top = scene.addPolygon(
+                QPolygonF([QPointF(x, y) for x, y in points_top]), pen)
             polygon_top.setBrush(QBrush(QColor('black')))
-            
+
             points_bottom = [
                 (x2, y2),
                 (x2 - arrow_size/2, y2 - arrow_size),
                 (x2 + arrow_size/2, y2 - arrow_size)
             ]
-            polygon_bottom = scene.addPolygon(QPolygonF([QPointF(x, y) for x, y in points_bottom]), pen)
+            polygon_bottom = scene.addPolygon(
+                QPolygonF([QPointF(x, y) for x, y in points_bottom]), pen)
             polygon_bottom.setBrush(QBrush(QColor('black')))
         else:
             points_top = [
@@ -559,23 +575,27 @@ class B2BCoverPlateCapacityDetails(QMainWindow):
                 (x2 - arrow_size/2, y2 + arrow_size),
                 (x2 + arrow_size/2, y2 + arrow_size)
             ]
-            polygon_top = scene.addPolygon(QPolygonF([QPointF(x, y) for x, y in points_top]), pen)
+            polygon_top = scene.addPolygon(
+                QPolygonF([QPointF(x, y) for x, y in points_top]), pen)
             polygon_top.setBrush(QBrush(QColor('black')))
-            
+
             points_bottom = [
                 (x1, y1),
                 (x1 - arrow_size/2, y1 - arrow_size),
                 (x1 + arrow_size/2, y1 - arrow_size)
             ]
-            polygon_bottom = scene.addPolygon(QPolygonF([QPointF(x, y) for x, y in points_bottom]), pen)
+            polygon_bottom = scene.addPolygon(
+                QPolygonF([QPointF(x, y) for x, y in points_bottom]), pen)
             polygon_bottom.setBrush(QBrush(QColor('black')))
-        
+
         text_item = scene.addText(text)
         font = QFont()
         font.setPointSize(int(self.fontsize))
         text_item.setFont(font)
-        
+
         if x1 < 0:
-            text_item.setPos(x1 - 10 - text_item.boundingRect().width(), (y1 + y2) / 2 - text_item.boundingRect().height() / 2)
+            text_item.setPos(x1 - 10 - text_item.boundingRect().width(),
+                             (y1 + y2) / 2 - text_item.boundingRect().height() / 2)
         else:
-            text_item.setPos(x1 + 15, (y1 + y2) / 2 - text_item.boundingRect().height() / 2)
+            text_item.setPos(x1 + 15, (y1 + y2) / 2 -
+                             text_item.boundingRect().height() / 2)
