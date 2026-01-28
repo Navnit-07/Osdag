@@ -77,8 +77,6 @@ class DesignSummaryWidget(QWidget):
         self.btn_saveProfile = QPushButton("Save Profile")
         self.btn_saveProfile.setObjectName("btn_saveProfile")
 
-        self.btn_useProfile.setFixedWidth(100)
-        self.btn_saveProfile.setFixedWidth(100)
         self.btn_useProfile.clicked.connect(self.use_profile)
         self.btn_saveProfile.clicked.connect(self.save_profile)
         profile_layout.addWidget(self.btn_useProfile)
