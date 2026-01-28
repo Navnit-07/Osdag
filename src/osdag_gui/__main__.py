@@ -242,10 +242,10 @@ You can also run in CLI mode using 'osdag cli run'.
 
 Examples:\n
   osdag\n
-  osdag-cli run -i TensionBolted.osi\n
-  osdag-cli run -i TensionBolted.osi -t save_csv -o result.csv\n
-  osdag-cli run -i TensionBolted.osi -t generate_report -o result.pdf\n
-  osdag-cli run -i TensionBolted.osi -t print_result\n
+  osdag cli run -i TensionBolted.osi\n
+  osdag cli run -i TensionBolted.osi -t save_csv -o result.csv\n
+  osdag cli run -i TensionBolted.osi -t generate_report -o result.pdf\n
+  osdag cli run -i TensionBolted.osi -t print_result\n
 ==================================================\n
 """
 
