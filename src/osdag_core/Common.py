@@ -10,10 +10,6 @@ import logging
 from importlib.resources import files
 from pathlib import Path
 import platform
-
-PATH_TO_DATABASE = files("osdag_core.data.ResourceFiles.Database").joinpath("Intg_osdag.sqlite")
-PDFLATEX = "pdflatex"
-
 import sqlite3
 
 from .utils.common.other_standards import *
@@ -94,7 +90,6 @@ def configure_latex_runtime_windows():
 
 
 PATH_TO_DATABASE = files("osdag_core.data.ResourceFiles.Database").joinpath("Intg_osdag.sqlite")
-PDFLATEX = get_latex_executable()
 
 class OurLog(logging.Handler):
 

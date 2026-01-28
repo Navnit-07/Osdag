@@ -16,17 +16,12 @@ from osdag_gui.ui.components.dialogs.custom_messagebox import CustomMessageBox, 
 
 from osdag_gui.ui.components.design_report.design_summary import DesignSummaryWidget
 from osdag_gui.ui.components.design_report.report_customization import CustomizationWidget
+from osdag_core.Common import get_latex_executable, get_documents_folder
 
 import os, sys
 import tempfile
 import shutil
 import subprocess
-
-try:
-    from osdag_core.Common import PDFLATEX, get_documents_folder
-except ImportError:
-    # using systems pdflatex
-    PDFLATEX = 'pdflatex'
 
 class DesignReportDialog(QDialog):
     """Main dialog containing both widgets with navigation"""
@@ -220,6 +215,7 @@ class DesignReportDialog(QDialog):
                 print(f"[WARNING]: Source images directory not found: {src_images}")
             
             # Run pdflatex
+            PDFLATEX = get_latex_executable()
             result = subprocess.run(
                 [PDFLATEX, '-interaction=nonstopmode', 'filtered_report.tex'],
                 capture_output=True,

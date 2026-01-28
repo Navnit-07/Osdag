@@ -29,7 +29,7 @@ import re
 
 try:
     from osdag_core.design_report.reportGenerator_latex import CreateLatex
-    from osdag_core.Common import PDFLATEX
+    from osdag_core.Common import get_latex_executable
     CREATELATEX_AVAILABLE = True
     # print("[INFO]: CreateLatex successfully imported")
 except ImportError:
