@@ -172,52 +172,6 @@ class AboutOsdagDialog(QDialog):
         </br>
         <h3>Project Interns</h3>
         <ul style="line-height: 1.6;text-decoration:none;">
-            <li style="margin-top: 1em;margin-bottom: 1em;">
-                <b>Feature Contributors (This Release)</b>
-                <table style="margin-top: 0.8em; border-collapse: collapse; width: 100%;">
-                    <tr>
-                        <td style="padding: 3px 3px;"><b>Anuranjani</b></td>
-                        <td style="padding: 3px 3px;">Documentation of Report Generation for Osdag</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 3px 3px;"><b>Aryan Gupta</b></td>
-                        <td style="padding: 3px 3px;">Optimisation and Effective Documentation of CAD Generation on Osdag</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 3px 3px;"><b>Aum Ghelani</b></td>
-                        <td style="padding: 3px 3px;">Import/Load OSI Logic</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 3px 3px;"><b>Harshan S</b></td>
-                        <td style="padding: 3px 3px;">Implementation of new 3D CAD Models</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 3px 3px;"><b>Mehendi Hasan</b></td>
-                        <td style="padding: 3px 3px;">Osdag CLI Implementation</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 3px 3px;"><b>Mohammad Suhail</b></td>
-                        <td style="padding: 3px 3px;">UI Redesign & Advanced Feature Development</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 3px 3px;"><b>Nishi Kant Mandal</b></td>
-                        <td style="padding: 3px 3px;">Application Stability & PSO Implementation for Plate Girder Module</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 3px 3px;"><b>Roushan Raj</b></td>
-                        <td style="padding: 3px 3px;">Implementation of Report Generation for New Modules</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 3px 3px;"><b>Shubham Kumar</b></td>
-                        <td style="padding: 3px 3px;">Documentation of Report Generation for Osdag</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 3px 3px;"><b>Steve Sojan</b></td>
-                        <td style="padding: 3px 3px;">Development of a Custom LaTeX Environment for Osdag using TinyTeX</td>
-                    </tr>
-                </table>
-            </li>
-            
             <li style="margin-top: 1em;">
                 <b>Contributors</b>
                 <ul style="line-height: 1.6;">
@@ -236,13 +190,16 @@ class AboutOsdagDialog(QDialog):
                     <li>Amrutha J</li>
                     <li>Ansari Mohammad Umair</li>
                     <li>Anshul Kumar Singh</li>
+                    <li>Anuranjani</li>
                     <li>Anushka Bajpai</li>
                     <li>Aravind P</li>
                     <li>Arbaz khan</li>
                     <li>Arushi</li>
                     <li>Aryamaan Pandey</li>
+                    <li>Aryan Gupta</li>
                     <li>Atharva Dhavale</li>
                     <li>Atharva Pingale</li>
+                    <li>Aum Ghelani</li>
                     <li>Azhar Khan</li>
                     <li>Chaman Lal Yadav</li>
                     <li>Debayan Ghosh</li>
@@ -254,6 +211,7 @@ class AboutOsdagDialog(QDialog):
                     <li>Faran Imam</li>
                     <li>Garvit Singh Rathore</li>
                     <li>Gourav Najwani</li>
+                    <li>Harshan S</li>
                     <li>Harsh Chelani</li>
                     <li>Harsh Gondal</li>
                     <li>Harshit Mahour</li>
@@ -266,7 +224,9 @@ class AboutOsdagDialog(QDialog):
                     <li>Manas Budhiraja</li>
                     <li>Manav Sharma</li>
                     <li>Mayank Agarwal</li>
+                    <li>Mehendi Hasan</li>
                     <li>Mohammad Azhar U Din Mir</li>
+                    <li>Mohammad Suhail</li>
                     <li>Mohammad Taha</li>
                     <li>Mohd Faraz Khan</li>
                     <li>Mohit Rana</li>
@@ -276,6 +236,7 @@ class AboutOsdagDialog(QDialog):
                     <li>Navnit Kumar</li>
                     <li>Navtej</li>
                     <li>Nikhil Kapoor</li>
+                    <li>Nishi Kant Mandal</li>
                     <li>Nitin Singh</li>
                     <li>Om Lakshkar</li>
                     <li>Pragya Thakur</li>
@@ -291,6 +252,7 @@ class AboutOsdagDialog(QDialog):
                     <li>Renu</li>
                     <li>Ritik Kumar</li>
                     <li>Riyaz Khan</li>
+                    <li>Roushan Raj</li>
                     <li>Rupali Agarwal</li>
                     <li>Sachin Saud</li>
                     <li>Sagar Rathore</li>
@@ -305,9 +267,11 @@ class AboutOsdagDialog(QDialog):
                     <li>Saumya Mishra</li>
                     <li>Shahadad PP</li>
                     <li>Shreya Bhende</li>
+                    <li>Shubham Kumar</li>
                     <li>Souraj Bhosale</li>
                     <li>Sreejesh S</li>
                     <li>Srinivas Raghav</li>
+                    <li>Steve Sojan</li>
                     <li>Sumagna Das</li>
                     <li>Suraj Bhosale</li>
                     <li>Sushree Sangita</li>
