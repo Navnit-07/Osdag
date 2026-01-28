@@ -180,7 +180,8 @@ def connectdb(table_name, call_type="dropdown"):
 
     elif table_name == "CHS":
         cursor = conn.execute("SELECT Designation FROM CHS")
-
+    elif table_name == "Beams and Columns":
+        cursor = conn.execute("SELECT Designation FROM Beams UNION SELECT Designation FROM Columns")
     else:
         cursor = conn.execute("SELECT Designation FROM Columns")
     rows = cursor.fetchall()
@@ -1105,6 +1106,7 @@ try:
     VALUES_MATERIAL = connectdb("Material")
     VALUES_PRIBM = connectdb("Beams")
     VALUES_DIAM = connectdb("Bolt")
+    VALUE_BEAM_COL = connectdb("Beams and Columns")
 except Exception as e:
     print(f"Warning: Could not load bolt diameters from database: {e}")
     VALUES_DIAM = []

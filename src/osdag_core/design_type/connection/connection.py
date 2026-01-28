@@ -583,10 +583,10 @@ class Connection(Main):
                 primary = design_dictionary[KEY_SUPTNGSEC]
                 secondary = design_dictionary[KEY_SUPTDSEC]
                 conn = sqlite3.connect(PATH_TO_DATABASE)
-                cursor = conn.execute("SELECT D, T, R1, R2 FROM COLUMNS WHERE Designation = ( ? ) ", (primary,))
+                cursor = conn.execute("SELECT D, T, R1, R2 FROM COLUMNS WHERE Designation = ( ? ) UNION SELECT D, T, R1, R2 FROM BEAMS WHERE Designation = ( ? ) ", (primary,primary))
                 p_beam_details = cursor.fetchone()
                 p_val = p_beam_details[0] - 2*p_beam_details[1] - p_beam_details[2] - p_beam_details[3]
-                cursor2 = conn.execute("SELECT B FROM BEAMS WHERE Designation = ( ? )", (secondary,))
+                cursor2 = conn.execute("SELECT B FROM BEAMS WHERE Designation = ( ? ) UNION SELECT B FROM COLUMNS WHERE Designation = ( ? )", (secondary,secondary))
 
                 s_beam_details = cursor2.fetchone()
                 s_val = s_beam_details[0]

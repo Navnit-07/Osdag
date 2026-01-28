@@ -177,10 +177,10 @@ class CleatAngleConnection(ShearConnection):
         t3 = (KEY_IMAGE, None, TYPE_IMAGE, str(files("osdag_core.data.ResourceFiles.images").joinpath("fin_cf_bw.png")), True, 'No Validator')
         options_list.append(t3)
 
-        t4 = (KEY_SUPTNGSEC, KEY_DISP_COLSEC, TYPE_COMBOBOX, VALUES_COLSEC, True, 'No Validator')
+        t4 = (KEY_SUPTNGSEC, KEY_DISP_COLSEC, TYPE_COMBOBOX, VALUE_BEAM_COL, True, 'No Validator')
         options_list.append(t4)
 
-        t5 = (KEY_SUPTDSEC, KEY_DISP_BEAMSEC, TYPE_COMBOBOX, VALUES_SECBM, True, 'No Validator')
+        t5 = (KEY_SUPTDSEC, KEY_DISP_BEAMSEC, TYPE_COMBOBOX, VALUE_BEAM_COL, True, 'No Validator')
         options_list.append(t5)
 
         t6 = (KEY_MATERIAL, KEY_DISP_MATERIAL, TYPE_COMBOBOX, VALUES_MATERIAL, True, 'No Validator')
@@ -261,9 +261,9 @@ class CleatAngleConnection(ShearConnection):
 
         conn = input[0]
         if conn in VALUES_CONN_1:
-            return VALUES_COLSEC
+            return VALUE_BEAM_COL
         elif conn in VALUES_CONN_2:
-            return VALUES_PRIBM
+            return VALUE_BEAM_COL
         else:
             return []
 
@@ -271,9 +271,9 @@ class CleatAngleConnection(ShearConnection):
 
         conn = input[0]
         if conn in VALUES_CONN_1:
-            return VALUES_SECBM
+            return VALUE_BEAM_COL
         elif conn in VALUES_CONN_2:
-            return VALUES_SECBM
+            return VALUE_BEAM_COL
         else:
             return []
 
